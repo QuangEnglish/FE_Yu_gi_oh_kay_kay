@@ -1,0 +1,273 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.wrapper-container-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #DC463C !important;
+}
+
+.container {
+    background: #ffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+    width: 600px!important;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 90%;
+    padding: 10px 20px;
+    border: none;
+    background-color: #FFC32A;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:hover {
+    background-color: #FFC32A;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 10px;
+}
+
+.form-group label{
+    display: flex;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.wrapper-sign-up{
+    display: flex;
+    justify-content: center;
+}
+
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 45px;
+    right: 40px;
+    cursor: pointer;
+}
+
+/*-------------------------------Trang chủ------------------------------------------*/
+.wrapper-container{
+    width: 100%;
+    background: #ffff;
+}
+.wrapper-header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #333;
+    color: #fff;
+}
+
+.header-left img {
+    width: 200px;
+    height: 70px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    width: 190px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: -6px;
+}
+
+.show {
+    display: block !important;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.wrapper-main{
+    width: 70%;
+    margin: 50px auto;
+    display: block;
+}
+.item-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.item {
+    width: 22%;
+    height: 320px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.item h3 {
+    color: #333;
+}
+
+.item .price {
+    color: #008cba;
+    font-size: 18px;
+    font-weight: bold;
+}
+.item p{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.chat-icon {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    width: 60px;
+    height: 60px;
+    background-color: #008cba;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.chat-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 99;
+}
+
+.chat-content {
+    padding: 20px;
+}
+
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.wrapper-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.mockup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 33%;
+    max-width: 500px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.mockup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.mockup-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.mockup-footer {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
