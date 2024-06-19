@@ -27,9 +27,6 @@ async function login() {
             const token = data.token;
             localStorage.setItem('token', token);
             window.location.href = '/store';
-            // document.getElementById('login-form').style.display = 'none';
-            // document.getElementById('logout-form').style.display = 'block';
-            // document.getElementById('user-name').innerText = result.username; // Giả sử API trả về tên người dùng
             errorMsg.innerText = '';
         } else {
             // Đăng nhập thất bại

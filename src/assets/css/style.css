@@ -147,12 +147,12 @@ button:hover {
 }
 .item {
     width: 22%;
-    height: 320px;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     text-align: center;
+    padding-bottom: 0px;
 }
 
 .item img {
@@ -270,4 +270,21 @@ footer{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 0 auto;
+}
+.search-container input {
+    width: 80%;
+    padding: 10px;
+}
+.search-container button {
+    padding: 10px 20px;
+    width: 20%;
+    margin: 0 10px;
 }

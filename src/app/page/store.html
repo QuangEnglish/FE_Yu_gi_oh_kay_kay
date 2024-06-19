@@ -23,45 +23,53 @@
                 <div id="user-dropdown" class="dropdown-content">
                     <a href="./sign-in.html" style="color: red;">Log out</a>
                     <a href="#" onclick="showMockup(event)">User information</a>
-                    <a href="#" onclick="showOwnerMockup(event)">Owner</a>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Enter the product name...">
+        <button onclick="searchProduct()">Search</button>
+        <button onclick="clearFilter()">Reset</button>
     </div>
     <div class="wrapper-main" id="product-list">
         <div class="item-row">
             <div class="item">
                 <img src="../../assets/img/2fd4a8c21a95bbe439602f29ddc96605.png" alt="Product 1">
                 <h3>Sản phẩm 1</h3>
-                <p class="price"><span>$1,200</span><span><i class="fa-solid fa-cart-shopping"></i></span></p>
+                <p class="stock">Stock:<span>10</span></p>
+                <p class="price"><span>$1,200</span><span><i class="fa-solid fa-cart-shopping" onclick="showPurchaseMockup(event)"></i></span></p>
             </div>
             <div class="item">
                 <img src="../../assets/img/2fd4a8c21a95bbe439602f29ddc96605.png" alt="Product 2">
                 <h3>Sản phẩm 2</h3>
+                <p class="stock">Stock:<span>10</span></p>
                 <p class="price"><span>$1,200</span><span><i class="fa-solid fa-cart-shopping"></i></span></p>
             </div>
             <div class="item">
                 <img src="../../assets/img/2fd4a8c21a95bbe439602f29ddc96605.png" alt="Product 3">
                 <h3>Sản phẩm 3</h3>
+                <p class="stock">Stock:<span>10</span></p>
                 <p class="price"><span>$1,200</span><span><i class="fa-solid fa-cart-shopping"></i></span></p>
             </div>
             <div class="item">
                 <img src="../../assets/img/2fd4a8c21a95bbe439602f29ddc96605.png" alt="Product 4">
                 <h3>Sản phẩm 4</h3>
+                <p class="stock">Stock:<span>10</span></p>
                 <p class="price"><span>$1,200</span><span><i class="fa-solid fa-cart-shopping"></i></span></p>
             </div>
         </div>
     </div>
-    <div class="wrapper-main">
-        <div class="chat-icon" onclick="toggleChatPopup()">
-            <img src="../../assets/img/icon-symbol-chat-outline-illustration-free-vector.jpg" alt="Chat Icon">
-        </div>
-        <div id="chat-popup" class="chat-popup">
-            <div class="chat-content">
-                <p>This is the content of the chat mockup</p>
-            </div>
-        </div>
-    </div>
+<!--    <div class="wrapper-main">-->
+<!--        <div class="chat-icon" onclick="toggleChatPopup()">-->
+<!--            <img src="../../assets/img/icon-symbol-chat-outline-illustration-free-vector.jpg" alt="Chat Icon">-->
+<!--        </div>-->
+<!--        <div id="chat-popup" class="chat-popup">-->
+<!--            <div class="chat-content">-->
+<!--                <p>This is the content of the chat mockup</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <footer>
         <div class="wrapper-footer">
             <p>© 2023 Your Company. All rights reserved.</p>
@@ -78,13 +86,8 @@
             <span style="font-size: 30px;" onclick="hideMockup()"><i class="fa-solid fa-delete-left"></i></span>
         </div>
         <div class="mockup-body p-3">
-            <p>Username: <span id="username">John Doe</span></p>
-            <p>Items bought:</p>
-            <ul id="items-bought" class="list-unstyled">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
+            <p>Username: <span id="username"></span></p>
+            <p>Items bought: <span id="total-bought"></span></p>
         </div>
         <div class="mockup-footer p-3 bg-light border-top text-right">
             <button class="btn btn-primary mr-2" onclick="changePassword()" style="margin-top: 20px;">Change Password
@@ -93,42 +96,65 @@
         </div>
     </div>
 
-    <!-- Owner Page Mockup -->
-    <div id="owner-mockup" class="mockup">
-        <div class="mockup-header d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
-            <h5 style="font-size: 30px;" class="m-0">Owner Page</h5>
-            <span style="font-size: 30px;" onclick="hideOwnerMockup()"><i class="fa-solid fa-delete-left"></i></span>
-        </div>
-        <div class="mockup-body p-3">
-            <button style="width: 100%;" class="btn btn-info mb-3" onclick="getRevenue()">Revenue</button>
-            <button style="width: 100%;" class="btn btn-success mb-3" onclick="showItemsManagement()">Items Management</button>
-
-            <div id="items-management" style="display: none; margin-top: 20px;">
-                <h5>Add New Product</h5>
-                <form id="product-form" onsubmit="submitProductForm(event)">
-                    <div class="form-group" style="display: flex;">
-                        <label style="margin-left: 0;" for="product-name">Product Name</label>
-                        <input type="text" class="form-control" id="product-name" required>
-                    </div>
-                    <div class="form-group" style="display: flex;">
-                        <label style="margin-left: 0;" for="product-price">Product Price</label>
-                        <input style="margin-left: 15px;" type="number" class="form-control" id="product-price" required>
-                    </div>
-                    <div class="form-group" style="display: flex; margin: 10px 0;">
-                        <label style="margin-left: 0;" for="product-upload-image">Upload Image</label>
-                        <input type="file" class="form-control-file" id="product-upload-image" accept="image/*" onchange="previewImage(event)">
-                    </div>
-                    <button style="width: 100%;" type="submit" class="btn btn-primary">Submit</button>
-                </form>
+<!--    Mockup mua hang-->
+        <div id="purchase-mockup" class="mockup">
+            <div class="mockup-header d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+                <h5 style="font-size: 30px;" class="m-0">Purchase</h5>
+                <span style="font-size: 30px;" onclick="hidePurchaseMockup()"><i class="fa-solid fa-delete-left"></i></span>
+            </div>
+            <div class="mockup-body p-3">
+                <div id="items-management" style="margin-top: 20px;">
+                    <form id="purchase-form" onsubmit="submitPurchaseForm(event)">
+                        <div class="form-group" style="display: flex;">
+                            <label style="margin-left: 0;" for="quantity">Quantity</label>
+                            <input type="number" class="form-control" min="1" id="quantity" required style="margin-left: 10px;">
+                        </div>
+                        <div class="form-group" style="display: flex; margin-top: 20px; margin-bottom: 20px;">
+                            <label style="margin-left: 0;" for="address">Address</label>
+                            <input style="margin: 0 0 0 15px;" type="text" class="form-control" id="address" required>
+                        </div>
+                        <button style="width: 100%;" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+
+    <!-- Owner Page Mockup -->
+<!--    <div id="owner-mockup" class="mockup">-->
+<!--        <div class="mockup-header d-flex justify-content-between align-items-center p-3 bg-light border-bottom">-->
+<!--            <h5 style="font-size: 30px;" class="m-0">Owner Page</h5>-->
+<!--            <span style="font-size: 30px;" onclick="hideOwnerMockup()"><i class="fa-solid fa-delete-left"></i></span>-->
+<!--        </div>-->
+<!--        <div class="mockup-body p-3">-->
+<!--            <button style="width: 100%;" class="btn btn-info mb-3" onclick="getRevenue()">Revenue</button>-->
+<!--            <button style="width: 100%;" class="btn btn-success mb-3" onclick="showItemsManagement()">Items Management</button>-->
+
+<!--            <div id="items-management" style="display: none; margin-top: 20px;">-->
+<!--                <h5>Add New Product</h5>-->
+<!--                <form id="product-form" onsubmit="submitProductForm(event)">-->
+<!--                    <div class="form-group" style="display: flex;">-->
+<!--                        <label style="margin-left: 0;" for="product-name">Product Name</label>-->
+<!--                        <input type="text" class="form-control" id="product-name" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group" style="display: flex;">-->
+<!--                        <label style="margin-left: 0;" for="product-price">Product Price</label>-->
+<!--                        <input style="margin-left: 15px;" type="number" class="form-control" id="product-price" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group" style="display: flex; margin: 10px 0;">-->
+<!--                        <label style="margin-left: 0;" for="product-upload-image">Upload Image</label>-->
+<!--                        <input type="file" class="form-control-file" id="product-upload-image" accept="image/*" onchange="previewImage(event)">-->
+<!--                    </div>-->
+<!--                    <button style="width: 100%;" type="submit" class="btn btn-primary">Submit</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../../assets/js/store.js"></script>
-<script src="../../assets/js/owner.js"></script>
+<!--<script src="../../assets/js/owner.js"></script>-->
 </body>
 </html>

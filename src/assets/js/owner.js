@@ -15,19 +15,15 @@ function showItemsManagement() {
     document.getElementById('items-management').style.display = 'block';
 }
 
-function submitProductForm(event) {
+function submitPurchaseForm(event) {
     event.preventDefault();
-    const name = document.getElementById('product-name').value;
-    const price = document.getElementById('product-price').value;
-    const imageFile = document.getElementById('product-upload-image').files[0];
+    const quantity = document.getElementById('quantity').value;
+    const address = document.getElementById('address').value;
 
     // Tạo formData để gửi dữ liệu lên server
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('price', price);
-    if (imageFile) {
-        formData.append('imageFile', imageFile);
-    }
+    formData.append('quantity', quantity);
+    formData.append('address', address);
 
     // Gọi API để thêm sản phẩm mới
     fetch('https://api.example.com/products', {
@@ -41,8 +37,8 @@ function submitProductForm(event) {
             return response.json();
         })
         .then(data => {
-            console.log('Product added successfully:', data);
-            alert('Product added successfully!');
+            console.log('Successful purchase:', data);
+            alert('Successful purchase!');
         })
         .catch(error => {
             console.error('Error adding product:', error);
